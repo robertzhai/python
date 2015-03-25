@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chukong.superstar"
+    android:installLocation="auto"
+    android:theme="@*android:style/Theme.NoTitleBar"
+    android:versionCode="0"
+    android:versionName="2.0.0" >
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:banner="@drawable/app_banner"
+        android:icon="@drawable/apicon"
+        android:isGame="true"
+        android:label="@string/app_name" >
+        <activity
+            android:name="com.chukong.activity.SuperStarActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorLandscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="unityplayer.UnityActivity"
+                android:value="true" />
+            <meta-data
+                android:name="unityplayer.ForwardNativeEventsToDalvik"
+                android:value="false" />
+        </activity>
+        <!-- additional activities -->
+        <activity
+            android:name="kr.co.dalcomsoft.superstar.SSIAPActivity"
+            android:label="SSIAP Purchase Activity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <!--  -->
+        <receiver
+            android:name="io.fiverocks.android.GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.gcm.intent.RETRY" />
+
+                <category android:name="kr.co.dalcomsoft.superstar.a" />
+            </intent-filter>
+        </receiver>
+        <!-- five rocks -->
+        <receiver android:name="io.fiverocks.android.FiveRocksReceiver" />
+        <receiver
+            android:name="io.fiverocks.android.InstallReferrerReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="io.fiverocks.android.appstore"
+            android:value="Google" />
+
+        <activity
+            android:name="com.facebook.unity.FBUnityLoginActivity"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.facebook.unity.FBUnityDeepLinkingActivity"
+            android:exported="true" >
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="\ 1503775633169911" />
+    </application>
+
+    <uses-feature android:glEsVersion="0x20000" />
+
+    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- additional permissions -->
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <permission
+        android:name="kr.co.dalcomsoft.superstar.a.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="kr.co.dalcomsoft.superstar.a.permission.C2D_MESSAGE" />
+    <!--
+  WARNING: 슈퍼스타 SMTOWN 에서 퍼미션을 잘 못 추가하여 대형 사고 발생.
+  "android.permission.WRITE_EXTERNAL_STORAGE" 퍼미션은 외부(sd카드)에 파일 쓰기 권한이지만, 해당 퍼미션 설정시 파일 로컬 저장소도 바뀐다.
+  (Android SDK 측이나 유니티 Application.persistentDataPath, 둘 중 한놈이 아마 저장소를 외부저장소로 잡는 것 같다
+   => 유니티 Application.persistentDataPath 문제가 맞다)
+  
+  문제점을 설명하자면, 지금까지 서비스 중인 앱의 DLC 컨텐츠가 300 MB 일 경우
+  android.permission.WRITE_EXTERNAL_STORAGE 퍼미션 추가 시
+  앱의 파일 저장소가 다른곳으로 설정되고, 파일이 없으므로 기존의 모든 유저가 300 MB 를 추가로 더 다운받게 된다.
+  동시에 유저가 설치한 앱의 용량은 다음과 같이 2배가 된다.
+  
+  기존저장소 + 바뀐저장소
+  = 300 MB + 300 MB
+  = 600 MB
+  
+  즉, 서비스 중인 앱은 아래 퍼미션을 함부로 추가 해서는 안된다.
+  
+  "android.permission.WRITE_EXTERNAL_STORAGE"
+    -->
+    <!--  -->
+    <uses-feature android:name="android.hardware.touchscreen" />
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch.distinct"
+        android:required="false" />
+    <!-- additional features -->
+    <!-- additional sdks -->
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="14" />
+    <!--  -->
+
+</manifest>

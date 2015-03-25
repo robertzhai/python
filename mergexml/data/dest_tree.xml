@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest xmlns:ns0="http://schemas.android.com/apk/res/android" package="com.chukong.superstar" ns0:installLocation="auto" ns0:theme="@*android:style/Theme.NoTitleBar" ns0:versionCode="0" ns0:versionName="2.0.0">
+
+    <supports-screens ns0:anyDensity="true" ns0:largeScreens="true" ns0:normalScreens="true" ns0:smallScreens="true" ns0:xlargeScreens="true" />
+
+    <application ns0:banner="@drawable/app_banner" ns0:icon="@drawable/apicon" ns0:isGame="true" ns0:label="@string/app_name">
+        <activity ns0:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" ns0:label="@string/app_name" ns0:launchMode="singleTask" ns0:name="com.chukong.activity.SuperStarActivity" ns0:screenOrientation="sensorLandscape">
+            <intent-filter>
+                <action ns0:name="android.intent.action.MAIN" />
+
+                <category ns0:name="android.intent.category.LAUNCHER" />
+                <category ns0:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+
+            <meta-data ns0:name="unityplayer.UnityActivity" ns0:value="true" />
+            <meta-data ns0:name="unityplayer.ForwardNativeEventsToDalvik" ns0:value="false" />
+        </activity>
+        
+        <activity ns0:label="SSIAP Purchase Activity" ns0:name="kr.co.dalcomsoft.superstar.SSIAPActivity" ns0:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        
+        <receiver ns0:name="io.fiverocks.android.GCMReceiver" ns0:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action ns0:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action ns0:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action ns0:name="com.google.android.gcm.intent.RETRY" />
+
+                <category ns0:name="kr.co.dalcomsoft.superstar.a" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver ns0:name="io.fiverocks.android.FiveRocksReceiver" />
+        <receiver ns0:exported="true" ns0:name="io.fiverocks.android.InstallReferrerReceiver">
+            <intent-filter>
+                <action ns0:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data ns0:name="io.fiverocks.android.appstore" ns0:value="Google" />
+
+        <activity ns0:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" ns0:name="com.facebook.unity.FBUnityLoginActivity" ns0:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        </activity>
+        <activity ns0:configChanges="keyboardHidden|orientation" ns0:name="com.facebook.LoginActivity" ns0:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        </activity>
+        <activity ns0:exported="true" ns0:name="com.facebook.unity.FBUnityDeepLinkingActivity">
+        </activity>
+
+        <meta-data ns0:name="com.facebook.sdk.ApplicationId" ns0:value="\ 1503775633169911" />
+    <activity ns0:name="com.jiubang.game2324.GameActivity">
+        </activity>
+        <activity ns0:name="com.jiubang.game2324.robertzhaiact">
+        </activity>
+    <uses-permission ns0:name="android.permission.INTERNET" />
+        <uses-permission ns0:name="android.permission.READ_PHONE_STATE" />
+
+    	<uses-permission ns0:name="android.permission.ACCESS_WIFI_STATE" />
+    	<uses-permission ns0:name="android.permission.ACCESS_NETWORK_STATE" />
+    	<uses-permission ns0:name="android.permission.robertzhai" />
+    </application>
+
+    <uses-feature ns0:glEsVersion="0x20000" />
+
+    <supports-gl-texture ns0:name="GL_OES_compressed_ETC1_RGB8_texture" />
+
+    <uses-permission ns0:name="android.permission.INTERNET" />
+    <uses-permission ns0:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission ns0:name="android.permission.ACCESS_WIFI_STATE" />
+    
+    <uses-permission ns0:name="com.android.vending.BILLING" />
+    <uses-permission ns0:name="android.permission.WAKE_LOCK" />
+    <uses-permission ns0:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission ns0:name="android.permission.GET_ACCOUNTS" />
+
+    <permission ns0:name="kr.co.dalcomsoft.superstar.a.permission.C2D_MESSAGE" ns0:protectionLevel="signature" />
+
+    <uses-permission ns0:name="kr.co.dalcomsoft.superstar.a.permission.C2D_MESSAGE" />
+    
+    
+    <uses-feature ns0:name="android.hardware.touchscreen" />
+    <uses-feature ns0:name="android.hardware.touchscreen.multitouch" ns0:required="false" />
+    <uses-feature ns0:name="android.hardware.touchscreen.multitouch.distinct" ns0:required="false" />
+    
+    
+    <uses-sdk ns0:minSdkVersion="10" ns0:targetSdkVersion="14" />
+    
+
+</manifest>
