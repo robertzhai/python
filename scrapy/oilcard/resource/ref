@@ -1,0 +1,11 @@
+	Scrapy is a web crawling framework with support for web scraping. It is open-source and written in Python. It is controlled using command line tools, that can be used to trigger the scrapers written in Python.Scrapy was born at London-based web aggregation and e-commerce company Mydeco, where it was developed and maintained by employees of Mydeco and Insophia (a web consulting company based in Montevideo, Uruguay). In 2011, Scrapinghub (a web scraping consulting company based in Cork, Ireland and Montevideo; of which Mydeco is a customer) became the new official maintainer. The first official release was in August 2008, and it has been continually improved since then.[citation needed]
+
+1.官方文档
+
+	http://doc.scrapy.org/en/latest/
+	
+2.中文文档
+	
+	http://scrapy-chs.readthedocs.org/zh_CN/latest/intro/overview.html
+	
+
