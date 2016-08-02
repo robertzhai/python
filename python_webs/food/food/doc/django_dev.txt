@@ -1,0 +1,13 @@
+1.install 
+	sudo pip install Django==1.7.3
+2.create project and app
+	django-admin.py startproject food
+	python manage.py startapp blog
+3.table migrate 
+	python manage.py migrate
+4.run server
+	python manage.py runserver
+	python manage.py runserver 8080
+5.makemigrations
+	python manage.py makemigrations recipe
+	python manage.py migrate recipe

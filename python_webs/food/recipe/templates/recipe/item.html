@@ -1,0 +1,18 @@
+{% for recipe in recipe_lists %}
+<div id="item" class="item">
+
+            <div class="dish__wrap">
+              <div class="pic">
+                <a href="#">
+                  <img class="box_img" src="/static{{recipe.pic}}" alt="{{recipe.dish}}" class="img-responsive">
+                </a>
+
+
+              </div>
+              <div class="recipe__title">
+                <a class="no_click" href="#">{{recipe.dish}}</a>
+              </div>
+
+            </div>
+        </div>
+{% endfor %}

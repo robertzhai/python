@@ -1,0 +1,15 @@
+1.install 
+	sudo pip install Django==1.7.3
+2.create project
+	django-admin.py startproject food
+3.table migrate 
+	python manage.py migrate
+4.run server
+	python manage.py runserver
+	python manage.py runserver 8080
+5.makemigrations
+	python manage.py makemigrations polls
+6.making model changes:
+	Change your models (in models.py).
+	Run python manage.py makemigrations to create migrations for those changes
+	Run python manage.py migrate to apply those changes to the database.

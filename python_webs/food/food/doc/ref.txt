@@ -1,0 +1,4 @@
+1.Django学习笔记(2):从一个简单的demo开始深入
+  http://django-china.cn/topic/106/
+2.rails girls
+  Django学习笔记(2):从一个简单的demo开始深入
