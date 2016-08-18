@@ -19,7 +19,9 @@ class TqSpider(scrapy.Spider):
     js_ctx = None
 
     # data_api = 'http://tianqi.2345.com/t/wea_history/js/201608/54823_201608.js'
-    data_api = 'http://tianqi.2345.com/t/wea_history/js/%s/%s_%s.js'
+    data_api_first = 'http://tianqi.2345.com/t/wea_history/js/%s/%s_%s.js'
+    #http://tianqi.2345.com/t/wea_history/js/54906_20162.js
+    data_api_second = 'http://tianqi.2345.com/t/wea_history/js/%s_%s.js'
     code_city = {}
 
     headers = {
@@ -62,28 +64,27 @@ class TqSpider(scrapy.Spider):
 
     def after_index(self, response):
 
-        years = ['2016', '2015']
+        years = ['2015', '2016']
         months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-        api = self.data_api
         '''
         return [Request(url='http://tianqi.2345.com/t/wea_history/js/201608/54823_201608.js',
                 meta={'cookiejar': 1},
-                        headers=self.headers
+                headers=self.headers
                 )]
-
         '''
         cur_month = int(arrow.utcnow().month)
-        cookiejar = 1
         for year in years:
 
             for month in months:
                 if int(month) > cur_month:
                     continue
                 for (code, city) in self.code_city.iteritems():
-                    api = self.data_api
-                    url = api % (year + month, code, year + month)
-                    print url
-                    time.sleep(15)
+                    if year == '2016' and int(month) > 3:
+                        url = self.data_api_first % (year + month, code, year + month)
+                    else:
+                        url = self.data_api_second % (code, year + str(int(month)))
+                    # print url
+                    time.sleep(1)
                     headers = copy.deepcopy(self.headers)
                     headers['Referer'] = 'http://tianqi.2345.com/wea_history/%s.htm' % code
                     headers['User-Agent'] = RotateUserAgent.get_user_agent()
@@ -128,9 +129,9 @@ class TqSpider(scrapy.Spider):
                         tq_item['tianqi'] = item['tianqi']
                         tq_item['fengxiang'] = item['fengxiang']
                         tq_item['fengli'] = item['fengli']
-                        tq_item['aqi'] = item['aqi']
-                        tq_item['aqiInfo'] = item['aqiInfo']
-                        tq_item['aqiLevel'] = item['aqiLevel']
+                        # tq_item['aqi'] = item['aqi']
+                        # tq_item['aqiInfo'] = item['aqiInfo']
+                        # tq_item['aqiLevel'] = item['aqiLevel']
                         yield tq_item
 
         else :

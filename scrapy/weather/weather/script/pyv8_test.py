@@ -36,7 +36,7 @@ def js2json(data):
     return jsond
 
 
-# jsond = js2json("{who: 'john',age: 28,}")
+# jsond = js2json("{name: 'john',age: 10,}")
 jsond = js2json(str)
 
 print jsond
