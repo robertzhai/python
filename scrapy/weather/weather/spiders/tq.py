@@ -76,14 +76,14 @@ class TqSpider(scrapy.Spider):
         for year in years:
 
             for month in months:
-                if int(month) > cur_month:
+                if int(month) > cur_month and year == '2016':
                     continue
                 for (code, city) in self.code_city.iteritems():
-                    if year == '2016' and int(month) > 3:
+                    if year == '2016' and int(month) >= 3:
                         url = self.data_api_first % (year + month, code, year + month)
                     else:
                         url = self.data_api_second % (code, year + str(int(month)))
-                    # print url
+                    print url
                     time.sleep(1)
                     headers = copy.deepcopy(self.headers)
                     headers['Referer'] = 'http://tianqi.2345.com/wea_history/%s.htm' % code
