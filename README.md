@@ -1,5 +1,4 @@
 <h1>python in practice <h1>
-
 <h2>a simple python web mobile project </h2>
 <h3><a href="https://github.com/robertzhai/python/tree/master/python_webs">python_webs</a></h3>
 
