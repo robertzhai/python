@@ -1,0 +1,43 @@
+sync
+Transactions:  		         274 hits
+Availability:  		      100.00 %
+Elapsed time:  		        9.94 secs
+Data transferred:      	        0.00 MB
+Response time: 		        1.13 secs
+Transaction rate:      	       27.57 trans/sec
+Throughput:    		        0.00 MB/sec
+Concurrency:   		       31.19
+Successful transactions:         274
+Failed transactions:   	           0
+Longest transaction:   	        1.69
+Shortest transaction:  	        0.05
+
+async
+
+Transactions:  		         857 hits
+Availability:  		      100.00 %
+Elapsed time:  		        9.74 secs
+Data transferred:      	        0.00 MB
+Response time: 		        0.07 secs
+Transaction rate:      	       87.99 trans/sec
+Throughput:    		        0.00 MB/sec
+Concurrency:   		        5.78
+Successful transactions:         857
+Failed transactions:   	           0
+Longest transaction:   	        1.23
+Shortest transaction:  	        0.02
+
+gen
+
+Transactions:  		         780 hits
+Availability:  		      100.00 %
+Elapsed time:  		        9.59 secs
+Data transferred:      	        0.00 MB
+Response time: 		        0.07 secs
+Transaction rate:      	       81.33 trans/sec
+Throughput:    		        0.00 MB/sec
+Concurrency:   		        5.79
+Successful transactions:         780
+Failed transactions:   	           0
+Longest transaction:   	        1.17
+Shortest transaction:  	        0.01
