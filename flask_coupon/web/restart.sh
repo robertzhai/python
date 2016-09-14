@@ -1,0 +1,2 @@
+supervisorctl status
+supervisorctl restart bestcoupon
