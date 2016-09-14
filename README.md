@@ -19,4 +19,12 @@
 <h3><a href="https://github.com/robertzhai/python/tree/master/flask_coupon" >flask_coupon</a></h3>
       
     
-
+<h2> 学习资源</h2>
+<h3>awesome-python: <a href="http://awesome-python.com/">http://awesome-python.com/</a></h3>
+<h3>python 2: <a href="https://docs.python.org/2/">https://docs.python.org/2/</a></h3>
+<h3>python 3: <a href="https://docs.python.org/3/">https://docs.python.org/3/</a></h3>
+<h3>gunicorn : <a href="http://gunicorn.org/">http://gunicorn.org/</a></h3>
+<h3>flask: <a href="http://flask.pocoo.org/">http://flask.pocoo.org/</a></h3>
+<h3>tornado: <a href="http://www.tornadoweb.org/">http://www.tornadoweb.org/</a></h3>
+<h3>django: <a href="https://www.djangoproject.com/">https://www.djangoproject.com/</a></h3>
+<h3>rabbitmq: <a href="http://www.rabbitmq.com/devtools.html#python-dev">http://www.rabbitmq.com/devtools.html#python-dev</a></h3>
