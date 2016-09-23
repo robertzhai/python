@@ -1,7 +1,4 @@
-<h1>python in practice <h1>
-
-
-
+#python in practice 
 <h2>1. a  python web crawler  for cn360 </h2>
 <h3><a href="https://github.com/robertzhai/python/tree/master/python_webcrawler">python_webcrawler</a></h3>
 
